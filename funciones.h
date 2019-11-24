@@ -7,23 +7,7 @@
 using namespace std;
 
 void savefile(Word* file){
-    ofstream archivo;
-    string nombreArchivo;
-    cout << "Digite el nombre del archivo donde desea guardar: " << endl;
-    cin >> nombreArchivo;
-    if (!(file->isAligned())){
-        file->alinearIzquierda();
-    }
-    archivo.open(nombreArchivo, ios::out);
-    for (int i = 0; i<file->getTexto().size(); i++){
-        for (int j = 0; j<file->getTexto()[i].size(); j++){
-            archivo << file->getTexto()[i][j];
-            cout << file->getTexto()[i][j];
-        }
-        archivo << '\n';
-        cout << '\n';
-    }
-    archivo.close();
+
 }
 
 void menuFunction(char opcion, Word*& file)
