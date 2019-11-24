@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/POO/POO-Project/main.cpp" "C:/POO/POO-Project/cmake-build-debug/CMakeFiles/POO_Project.dir/main.cpp.obj"
-  "C:/POO/POO-Project/word.cpp" "C:/POO/POO-Project/cmake-build-debug/CMakeFiles/POO_Project.dir/word.cpp.obj"
+  "C:/Users/Usuario/Desktop/PROYECTO PO1/ProyectoFinal2.0/main.cpp" "C:/Users/Usuario/Desktop/PROYECTO PO1/ProyectoFinal2.0/cmake-build-debug/CMakeFiles/POO_Project.dir/main.cpp.obj"
+  "C:/Users/Usuario/Desktop/PROYECTO PO1/ProyectoFinal2.0/word.cpp" "C:/Users/Usuario/Desktop/PROYECTO PO1/ProyectoFinal2.0/cmake-build-debug/CMakeFiles/POO_Project.dir/word.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

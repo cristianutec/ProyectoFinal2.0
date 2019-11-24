@@ -158,9 +158,33 @@ int Word::contarPalabra(string palabra){
 }
 
 void Word::encriptar(){
-
+    for(int i=0; i<texto.size(); i++) {
+        for (int j = 0; j < texto[i].size(); j++) {
+            if (texto[i][j] != ' '){
+                texto[i][j] = texto[i][j] - 64;
+            }
+        }
+    }
+    for(int i=0; i<palabras.size(); i++) {
+        for (int j = 0; j < palabras[i].size(); j++) {
+            palabras[i][j] = palabras[i][j] - 64;
+        }
+    }
+    encript = true;
 }
 
 void Word::desencriptar(){
-
+    for(int i=0; i<texto.size(); i++) {
+        for (int j = 0; j < texto[i].size(); j++) {
+            if (texto[i][j] != ' '){
+                texto[i][j] = texto[i][j] + 64;
+            }
+        }
+    }
+    for(int i=0; i<palabras.size(); i++) {
+        for (int j = 0; j < palabras[i].size(); j++) {
+            palabras[i][j] = palabras[i][j] + 64;
+        }
+    }
+    encript = false;
 }
