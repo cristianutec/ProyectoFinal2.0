@@ -104,19 +104,182 @@ void Word::setAligned(bool aligned) {
 //a partir de aqui empieza la definicion de los metodos
 
 void Word::justificar(){
-
+    texto.clear();
+    int cantPalabras = 0;
+    bool acabar = false;
+    //cout << palabras.size() << endl;
+    while (!acabar){
+        int i = 0;
+        vector<char> linea;
+        bool vacio = true;
+        int cantPalabrasPorLinea = 0;
+        while (vacio){
+            if (palabras[cantPalabras].size()<=(size-i) && (size-i)>=0  && cantPalabras<palabras.size()){
+                //cout << palabras[cantPalabras] << " " << palabras[cantPalabras].size() << " " << size - i << endl;
+                for(int j = 0; j<palabras[cantPalabras].size(); j++){
+                    linea.push_back(palabras[cantPalabras][j]);
+                    i++;
+                }
+                cantPalabrasPorLinea++;
+                cantPalabras++;
+                linea.push_back(' ');
+                i++;
+                /*for (auto it: linea){
+                    cout << it;
+                }
+                cout << " " << linea.size() << " " << size-i << " " << cantPalabrasPorLinea << endl;*/
+            } else {
+                vacio = false;
+                if (cantPalabrasPorLinea>1) {
+                    //para remover el último espacio en la linea
+                    i--;
+                    linea.pop_back();
+                    int cantEspacios = size - i;
+                    /*for (auto it: linea){
+                        cout << it;
+                    }
+                    cout << " " << linea.size() << " " << cantEspacios << endl;*/
+                    bool espaciosAsignados = false;
+                    int recorre = 0;
+                    while (!espaciosAsignados) {
+                        while (recorre < size - cantEspacios && cantEspacios > 0) {
+                            if (linea[recorre] == ' ') {
+                                bool checkear_espacios = false;
+                                while (!checkear_espacios) {
+                                    if (linea[recorre + 1] == ' ') {
+                                        recorre++;
+                                    } else
+                                        checkear_espacios = true;
+                                }
+                                //insertar espacio
+                                linea.insert(linea.begin() + recorre + 1, ' ');
+                                cantEspacios--;
+                                recorre++;
+                                recorre++;
+                            } else
+                                recorre++;
+                        }
+                        if (cantEspacios == 0)
+                            espaciosAsignados = true;
+                        else
+                            recorre = 0;
+                    }
+                }
+                /*for (auto it: linea){
+                    cout << it;
+                }
+                cout << " " << linea.size() << endl;*/
+                texto.push_back(linea);
+            }
+        }
+        if (cantPalabras == palabras.size())
+            acabar = true;
+    }
+    aligned = true;
 }
 
 void Word::alinearDerecha(){
+    texto.clear();
+    int cantPalabras = 0;
+    bool acabar = false;
+    while (!acabar){
+        int i = 0;
+        vector<char> linea;
+        bool vacio = true;
+        while (vacio){
+            if (palabras[cantPalabras].size()<=(size-i) && (size-i)>=0  && cantPalabras<palabras.size()){
+                for(int j = 0; j<palabras[cantPalabras].size(); j++){
+                    linea.push_back(palabras[cantPalabras][j]);
+                    i++;
+                }
+                cantPalabras++;
+                linea.push_back(' ');
+                i++;
+            } else {
+                //para remover el último espacio en el arreglo
+                i--;
+                linea.pop_back();
+                vacio = false;
+                int cantEspacios = size - i;
+                for (int j=0; j<cantEspacios; j++){
+                    linea.insert(linea.begin(), ' ');
+                }
+                texto.push_back(linea);
+            }
+        }
+        if (cantPalabras == palabras.size())
+            acabar = true;
+    }
+    aligned = true;
 
 }
 
 void Word::alinearIzquierda(){
-
+    texto.clear();
+    int cantPalabras = 0;
+    bool acabar = false;
+    while (!acabar){
+        int i = 0;
+        vector<char> linea;
+        bool vacio = true;
+        while (vacio){
+            if (palabras[cantPalabras].size()<=(size-i) && (size-i)>=0  && cantPalabras<palabras.size()){
+                for(int j = 0; j<palabras[cantPalabras].size(); j++){
+                    linea.push_back(palabras[cantPalabras][j]);
+                    i++;
+                }
+                cantPalabras++;
+                linea.push_back(' ');
+                i++;
+            } else {
+                //para remover el último espacio en el arreglo
+                i--;
+                linea.pop_back();
+                vacio = false;
+                texto.push_back(linea);
+            }
+        }
+        if (cantPalabras == palabras.size())
+            acabar = true;
+    }
+    aligned = true;
 }
 
 void Word::alinearCentro(){
-
+    texto.clear();
+    int cantPalabras = 0;
+    bool acabar = false;
+    while (!acabar){
+        int i = 0;
+        vector<char> linea;
+        bool vacio = true;
+        while (vacio){
+            if (palabras[cantPalabras].size()<=(size-i) && (size-i)>=0  && cantPalabras<palabras.size()){
+                for(int j = 0; j<palabras[cantPalabras].size(); j++){
+                    linea.push_back(palabras[cantPalabras][j]);
+                    i++;
+                }
+                cantPalabras++;
+                linea.push_back(' ');
+                i++;
+            } else {
+                //para remover el último espacio en el arreglo
+                i--;
+                linea.pop_back();
+                vacio = false;
+                int cantEspacios = size - i;
+                for (int j = 0; j < cantEspacios; j++){
+                    if (j%2==0){
+                        linea.insert(linea.begin(), ' ');
+                    }
+                }
+                texto.push_back(linea);
+            }
+        }
+        if (cantPalabras == palabras.size())
+            acabar = true;
+    }
+    aligned = true;
 }
 
 void Word::findWord(string palabra){
